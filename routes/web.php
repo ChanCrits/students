@@ -8,4 +8,11 @@ use App\Http\Controllers\StudentController;
 Route::get('/', [StudentController::class, 'index']);
 
 // Define route for Students page (if it's a separate page)
-Route::get('/Students', [StudentController::class, 'index']);
+Route::get('/Students', [StudentController::class, 'index']);   
+
+
+// Define route for Add Student page
+Route::resource('students', StudentController::class);
+
+
+
