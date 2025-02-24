@@ -26,20 +26,20 @@ class StudentController extends Controller
         return redirect()->route('students.index')->with('success', 'Student added successfully.');
     }
 
-    // public function update(Request $request, $id)
-    // {
-    //     $request->validate([
-    //         'name' => 'required|string|max:255',
-    //         'email' => 'required|email|max:255',
-    //         'age' => 'required|integer',
-    //         'course' => 'required|string|max:255',
-    //     ]);
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'age' => 'required|integer',
+            'course' => 'required|string|max:255',
+        ]);
 
-    //     $student = Student::findOrFail($id);
-    //     $student->update($request->all());
+        $student = Student::findOrFail($id);
+        $student->update($request->all());
 
-    //     return redirect()->route('students.index')->with('success', 'Student updated successfully.');
-    // }
+        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
+    }
 
     public function destroy($id)
     {

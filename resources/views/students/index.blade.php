@@ -98,9 +98,9 @@
                         <td>{{ $student->age }}</td>
                         <td>{{ $student->course }}</td>
                         <td>
-                            <!-- <button type="button" class="btn btn-warning btn-circle" data-toggle="modal" data-target="#editStudentModal" data-student-id="{{ $student->id }}" data-student-name="{{ $student->name }}" data-student-email="{{ $student->email }}" data-student-age="{{ $student->age }}" data-student-course="{{ $student->course }}">
+                            <button type="button" class="btn btn-warning btn-circle" data-toggle="modal" data-target="#editStudentModal" data-student-id="{{ $student->id }}" data-student-name="{{ $student->name }}" data-student-email="{{ $student->email }}" data-student-age="{{ $student->age }}" data-student-course="{{ $student->course }}">
                                 <i class="fas fa-edit"></i>
-                            </button> -->
+                            </button>
                             <button type="button" class="btn btn-danger btn-circle" data-toggle="modal" data-target="#confirmDeleteModal" data-student-id="{{ $student->id }}">
                                 <i class="fas fa-times"></i>
                             </button>
@@ -148,7 +148,7 @@
     </div>
 
     <!-- Edit Student Modal -->
-    <!-- <div class="modal fade" id="editStudentModal" tabindex="-1" aria-labelledby="editStudentModalLabel" aria-hidden="true">
+    <div class="modal fade" id="editStudentModal" tabindex="-1" aria-labelledby="editStudentModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header edit">
@@ -182,7 +182,7 @@
                 </div>
             </div>
         </div>
-    </div> -->
+    </div>
 
     <!-- Confirm Delete Modal -->
     <div class="modal fade" id="confirmDeleteModal" tabindex="-1" aria-labelledby="confirmDeleteModalLabel" aria-hidden="true">
