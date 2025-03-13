@@ -10,17 +10,16 @@ return new class extends Migration
      * Run the migrations.
      */
     public function up()
-{
-    Schema::create('students', function (Blueprint $table) {
-        $table->id();
-        $table->string('name');
-        $table->string('email')->unique();
-        $table->integer('age');
-        $table->string('course');
-        $table->timestamps();
-    });
-}
-
+    {
+        Schema::create('students', function (Blueprint $table) {
+            $table->id();
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->integer('age');
+            $table->string('course');
+            $table->timestamps();
+        });
+    }
 
     /**
      * Reverse the migrations.
@@ -29,4 +28,4 @@ return new class extends Migration
     {
         Schema::dropIfExists('students');
     }
-};
+};gibb@gmail.com

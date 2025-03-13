@@ -1,51 +1,38 @@
 <?php
+
 namespace App\Http\Controllers;
 
-use App\Models\Student;
 use Illuminate\Http\Request;
+use App\Models\RegisterStudent; // Import the RegisterStudent model
+use Illuminate\Support\Facades\Hash;
 
 class StudentController extends Controller
 {
+    // Other methods...
+
     public function index()
     {
-        $students = Student::orderBy('created_at', 'desc')->get();
-        return view('students.index', compact('students'));
+        // You can customize this method to return a view or data as needed
+        return view('students.index'); // Ensure you have a view named 'index.blade.php' in the 'students' directory
     }
 
-    public function store(Request $request)
+    public function showRegistrationForm()
+    {
+        return view('students.register');
+    }
+
+    public function register(Request $request)
     {
         $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'age' => 'required|integer',
-            'course' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:register_students',
+            'password' => 'required|string|min:8|confirmed',
         ]);
 
-        Student::create($request->all());
+        $registerStudent = new RegisterStudent();
+        $registerStudent->email = $request->email;
+        $registerStudent->password = Hash::make($request->password);
+        $registerStudent->save();
 
-        return redirect()->route('students.index')->with('success', 'Student added successfully.');
-    }
-
-    public function update(Request $request, $id)
-    {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'age' => 'required|integer',
-            'course' => 'required|string|max:255',
-        ]);
-
-        $student = Student::findOrFail($id);
-        $student->update($request->all());
-
-        return redirect()->route('students.index')->with('success', 'Student updated successfully.');
-    }
-
-    public function destroy($id)
-    {
-        $student = Student::findOrFail($id);
-        $student->delete();
-
-        return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
+        return redirect()->route('students.index')->with('success', 'Student registered successfully.');
     }
 }
