@@ -3,17 +3,14 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\RegisterStudent; // Import the RegisterStudent model
-use Illuminate\Support\Facades\Hash;
+use App\Models\Student; // Import the Student model
 
 class StudentController extends Controller
 {
-    // Other methods...
-
     public function index()
     {
-        // You can customize this method to return a view or data as needed
-        return view('students.index'); // Ensure you have a view named 'index.blade.php' in the 'students' directory
+        $students = Student::all();
+        return view('students.index', compact('students'));
     }
 
     public function showRegistrationForm()
@@ -21,18 +18,30 @@ class StudentController extends Controller
         return view('students.register');
     }
 
-    public function register(Request $request)
+    public function store(Request $request)
     {
         $request->validate([
-            'email' => 'required|string|email|max:255|unique:register_students',
-            'password' => 'required|string|min:8|confirmed',
+            'name' => 'required|string|max:255',
+            'email' => 'required|string|email|max:255|unique:students',
+            'age' => 'required|integer',
+            'course' => 'required|string|max:255'
         ]);
 
-        $registerStudent = new RegisterStudent();
-        $registerStudent->email = $request->email;
-        $registerStudent->password = Hash::make($request->password);
-        $registerStudent->save();
+        $student = new Student();
+        $student->name = $request->name;
+        $student->email = $request->email;
+        $student->age = $request->age;
+        $student->course = $request->course;
+        $student->save();
 
         return redirect()->route('students.index')->with('success', 'Student registered successfully.');
+    }
+
+    public function destroy($id)
+    {
+        $student = Student::findOrFail($id);
+        $student->delete();
+
+        return redirect()->route('students.index')->with('success', 'Student deleted successfully.');
     }
 }

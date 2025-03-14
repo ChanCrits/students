@@ -1,4 +1,3 @@
-<!-- filepath: resources/views/students/index.blade.php -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -58,6 +57,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="#">About</a>
                 </li> -->
+            </ul>
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-danger">Logout</button>
+                    </form>
+                </li>
             </ul>
         </div>
     </nav>
