@@ -18,10 +18,8 @@ class RedirectIfAuthenticated
      */
     public function handle(Request $request, Closure $next, ...$guards)
     {
-        foreach ($guards as $guard) {
-            if (Auth::guard($guard)->check()) {
-                return redirect('/students');
-            }
+        if (Auth::check()) {
+            return redirect()->route('students.index');
         }
 
         return $next($request);

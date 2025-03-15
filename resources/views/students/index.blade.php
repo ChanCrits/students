@@ -7,10 +7,12 @@
     <!-- Bootstrap CSS -->
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         body {
-            background-color:hsl(0, 0.00%, 100.00%);
+            background-color: #343a40;
+            
+            color: #ffffff;
         }
         .btn-circle {
             width: 30px;
@@ -22,24 +24,61 @@
             line-height: 1.42857;
         }
         .modal-header.add {
-            background-color: #28a745; /* Green */
+            background-color:rgb(17, 17, 17); /* Green */
             color: white;
         }
         .modal-header.edit {
-            background-color: #ffc107; /* Yellow */
+            background-color:rgb(17, 17, 17); /* Green */
             color: white;
         }
         .modal-header.delete {
-            background-color: #dc3545; /* Red */
+            background-color:rgb(17, 17, 17); /* Green */
             color: white;
+        }
+        .table {
+            background-color: #495057;
+            color: #ffffff;
+        }
+        .table thead {
+            background-color: #212529;
+        }
+        .table th, .table td {
+            border-color: #6c757d;
+        }
+        .navbar {
+            background-color: #212529;
+        }
+        .navbar-brand, .nav-link, .btn-danger {
+            color: #ffffff;
+        }
+        .btn-primary {
+            background-color: #007bff;
+            border: none;
+        }
+        .btn-primary:hover {
+            background-color: #0056b3;
+        }
+        .btn-warning {
+            background-color: #ffc107;
+            border: none;
+        }
+        .btn-warning:hover {
+            background-color: #e0a800;
+        }
+        .btn-danger {
+            background-color: #dc3545;
+            border: none;
+        }
+        .btn-danger:hover {
+            background-color: #c82333;
         }
     </style>
 </head>
 <body>
 
     <!-- Navigation Bar -->
-    <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
-        <a class="navbar-brand" href="#">Student Management</a>
+    <nav class="navbar navbar-expand-lg navbar-dark">
+        <a class="navbar-brand" href="#"><i class="fas fa-users"></i> Student Management</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -121,10 +160,10 @@
     <!-- Add Student Modal -->
     <div class="modal fade" id="addStudentModal" tabindex="-1" aria-labelledby="addStudentModalLabel" aria-hidden="true">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content bg-dark text-white">
                 <div class="modal-header add">
                     <h5 class="modal-title" id="addStudentModalLabel">Add Student</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <button type="button" class="close text-white" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
@@ -133,19 +172,19 @@
                         @csrf
                         <div class="form-group">
                             <label for="studentName">Name</label>
-                            <input type="text" class="form-control" id="studentName" name="name" required>
+                            <input type="text" class="form-control bg-dark text-white" id="studentName" name="name" required>
                         </div>
                         <div class="form-group">
                             <label for="studentEmail">Email</label>
-                            <input type="email" class="form-control" id="studentEmail" name="email" required>
+                            <input type="email" class="form-control bg-dark text-white" id="studentEmail" name="email" required>
                         </div>
                         <div class="form-group">
                             <label for="studentAge">Age</label>
-                            <input type="number" class="form-control" id="studentAge" name="age" required>
+                            <input type="number" class="form-control bg-dark text-white" id="studentAge" name="age" required>
                         </div>
                         <div class="form-group">
                             <label for="studentCourse">Course</label>
-                            <input type="text" class="form-control" id="studentCourse" name="course" required>
+                            <input type="text" class="form-control bg-dark text-white" id="studentCourse" name="course" required>
                         </div>
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </form>
