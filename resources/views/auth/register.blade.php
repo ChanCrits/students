@@ -56,10 +56,11 @@
             <div class="card">
                 <div class="card-header text-center">
                     <i class="fas fa-user-plus logo"></i>
-                    <h2>Register user</h2>
+                    <h2>Register</h2>
                 </div>
                 <div class="card-body">
-                    <form id="registerForm">
+                    <form action="{{ route('register') }}" method="POST">
+                        @csrf
                         <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" class="form-control" id="email" name="email" required>
@@ -76,22 +77,5 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.getElementById('registerForm').addEventListener('submit', function(event) {
-        event.preventDefault(); // Prevent default form submission
-
-        let email = document.getElementById('email').value;
-        let password = document.getElementById('password').value;
-
-        if (email && password) {
-            alert('Registration successful!'); // Show success alert
-            window.location.href = "{{ route('login.form') }}"; // Redirect to login page
-        } else {
-            alert('Registration failed. Please fill in all fields.'); // Show error alert
-        }
-    });
-</script>
-
 </body>
 </html>

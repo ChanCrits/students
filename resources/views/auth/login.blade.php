@@ -71,7 +71,7 @@
                         </div>
                         <button type="submit" class="btn btn-primary btn-block">Login</button>
                     </form>
-                    <a href="{{ route('register.form') }}" class="register-link">Don't have an account? Register here</a>
+                    <a href="{{ route('register.form') }}" class="register-link">Don't have an account?Register here</a>
                 </div>
             </div>
         </div>
