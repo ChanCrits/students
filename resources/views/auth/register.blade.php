@@ -69,9 +69,9 @@
                             <label for="password">Password</label>
                             <input type="password" class="form-control" id="password" name="password" required>
                         </div>
-                        <button type="submit" class="btn btn-primary btn-block">Register</button>
+                        <button type="submit" class="btn btn-primary btn-block"> Register </button>
                     </form>
-                    <a href="{{ route('login.form') }}" class="login-link">Already have an account? Login here</a>
+                    <a href="{{ route('login.form') }}" class="login-link">Already have an account?Login here</a>
                 </div>
             </div>
         </div>
