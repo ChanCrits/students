@@ -56,7 +56,7 @@
             <div class="card">
                 <div class="card-header text-center">
                     <i class="fas fa-user-plus logo"></i>
-                    <h2>Register User</h2>
+                    <h2>Register user</h2>
                 </div>
                 <div class="card-body">
                     <form id="registerForm">
